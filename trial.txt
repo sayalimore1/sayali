@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 this is a demo one
+=======
+<h1>this is a demo</h1>
+>>>>>>> 9309351f043c594ba36ba030e1faf351e9648387
