@@ -12,7 +12,4 @@
         service:
           name: httpd
           state: stopped
-      - name: deploy code
-        copy:
-          src: /etc/ansible/index.html
-          dest: /var/www/html
+      
