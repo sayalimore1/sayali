@@ -1,9 +1,9 @@
 ---
 - hosts: webservers
-remote_user: root
-become: no
+  remote_user: root
+  become: no
 
-tasks:
+  tasks:
 
 - name: Add Unix Admins users
   user: name={{ ansible }} group=users groups=wheel
