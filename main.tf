@@ -208,6 +208,14 @@ resource "aws_spot_instance_request" "sayali_Server_pvt" {
     }
 
 }
+}
+output "instance_Pub_ip" {
+  value = aws_spot_instance_request.sayali_Server_pub.public_ip
+}
+output "instance_Pvt_ip" {
+  value = aws_spot_instance_request.sayali_Server_pvt.private_ip
+}
+
 
 
 
