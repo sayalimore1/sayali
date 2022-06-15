@@ -15,9 +15,6 @@ tags = {
 }
   
 }
-
-
-
 # Creating Public subnet
 
 resource "aws_subnet" "subnet-pub" {
@@ -52,7 +49,7 @@ resource "aws_subnet" "subnet-pvt" {
 # #   allocation_id = aws_eip.sayali_eip.id
 # #   subnet_id     = aws_subnet.subnet-pvt.id
 
-# #   tags = {
+# #   tags = 
 # #     Name = "Sayali_NG"
 # #   }
 # #    depends_on = [aws_internet_gateway.gw]
@@ -208,30 +205,12 @@ resource "aws_spot_instance_request" "sayali_Server_pvt" {
     }
 
 }
-}
 output "instance_Pub_ip" {
   value = aws_spot_instance_request.sayali_Server_pub.public_ip
 }
 output "instance_Pvt_ip" {
   value = aws_spot_instance_request.sayali_Server_pvt.private_ip
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
