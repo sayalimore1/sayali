@@ -172,7 +172,7 @@ resource "aws_security_group" "Sayali-sg" {
 resource "aws_spot_instance_request" "sayali_Server_pub" {
   ami = "ami-079b5e5b3971bd10d"
   spot_price             = "0.03"
-  instance_type          = "t2.micro"
+  instance_type          = "var.instance_type"
   spot_type              = "one-time"
   wait_for_fulfillment   = "true"
   # associate_public_ip_address = true
@@ -190,7 +190,7 @@ resource "aws_spot_instance_request" "sayali_Server_pub" {
 resource "aws_spot_instance_request" "sayali_Server_pvt" {
   ami = "ami-079b5e5b3971bd10d"
   spot_price             = "0.03"
-  instance_type          = "t2.micro"
+  instance_type          = "var.instance_type1"
   spot_type              = "one-time"
   wait_for_fulfillment   = "true"
   subnet_id = aws_subnet.subnet-pvt.id
