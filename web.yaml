@@ -3,12 +3,43 @@
   hosts: webservers
   become: true
   tasks:
-    - name: Install httpd
-      yum:
-        name: httpd
-        state: present
-    - name: Starting web server
-      service:
-        name: httpd
-        state: started
-        enabled: true
+  - name: Changing ansible_hostname
+    hostname:
+      name: Sayali_Pub
+  - name: Install httpd
+    yum:
+     name: httpd
+     state: present
+  - name: Starting web server
+    service:
+     name: httpd
+     state: started
+     enabled: true
+  - name: Install httpd
+    yum:
+     name: httpd
+     state: present
+  - name: Starting web server
+    service:
+     name: httpd
+     state: started
+     enabled: true
+  - name: copy conf file
+    template:
+          src: "/dist/my-angular-app/"
+          dest: "/var/www/html"
+          notify: "server restart"
+  - name: "server restart"
+    service:
+          name: "httpd"
+          state: restarted
+  - name: Add Unix Admins users
+    user: name={{ ansible }} group=users groups=wheel
+  - name: Allow wheel group to have passwordless sudo
+    lineinfile:
+         path: /etc/sudoers
+         state: present
+         regexp: '^%wheel'
+         line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+  - name: Add sudoers users to wheel group
+    user: name=ansible groups=wheel append=yes state=present createhome=yes
