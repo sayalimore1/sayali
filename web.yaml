@@ -25,10 +25,9 @@
      state: started
      enabled: true
   - name: copy conf file
-    template:
-          src: "/dist/my-angular-app/"
-          dest: "/var/www/html"
-          notify: "server restart"
+    copy:
+      src: "/dist/my-angular-app/"
+      dest: "/var/www/html"
   - name: "server restart"
     service:
           name: "httpd"
