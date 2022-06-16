@@ -1,20 +1,11 @@
 ---
-- name: installing  web server
+- name: Running playbooks
   hosts: webservers
   become: true
   tasks:
   - name: Changing ansible_hostname
     hostname:
       name: Sayali_Pub
-  - name: Install httpd
-    yum:
-     name: httpd
-     state: present
-  - name: Starting web server
-    service:
-     name: httpd
-     state: started
-     enabled: true
   - name: Install httpd
     yum:
      name: httpd
