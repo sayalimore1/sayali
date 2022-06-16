@@ -33,7 +33,7 @@
           name: "httpd"
           state: restarted
   - name: Add Unix Admins users
-    user: name={{ ansible }} group=users groups=wheel
+    user: name=say group=users groups=wheel
   - name: Allow wheel group to have passwordless sudo
     lineinfile:
          path: /etc/sudoers
@@ -41,4 +41,4 @@
          regexp: '^%wheel'
          line: '%wheel ALL=(ALL) NOPASSWD: ALL'
   - name: Add sudoers users to wheel group
-    user: name=ansible groups=wheel append=yes state=present createhome=yes
+    user: name=say groups=wheel append=yes state=present createhome=yes
